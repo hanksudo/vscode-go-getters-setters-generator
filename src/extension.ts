@@ -50,7 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
             );
             // push function to setters
             setters.push(
-              `func (${receiver} *${structName}) Set${displayKey}(${setKey} ${type}) *${structName} ` +
+              `func (${receiver} *${structName}) Set${displayKey}(${setKey} ${type})` +
                 `{\n\t${receiver}.${rawKey} = ${setKey}\n}`
             );
           }
