@@ -34,3 +34,11 @@ Initial release of GGSG
 
 
 **Hope you enjoy this extension!**
+
+## Install on local
+
+```zsh
+npm install -g @vscode/vsce
+vsce package
+code --install-extension ggsg-1.0.0.vsix
+```
