@@ -40,6 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
             // Might be a valid line
             const receiver = structName.toLowerCase();
             const rawKey = values[0][0];
+            const setKey = rawKey[0].toLowerCase() + rawKey.slice(1);
             const displayKey = rawKey[0].toUpperCase() + rawKey.slice(1);
             const type = values[1][0];
             // push function to getters
@@ -49,8 +50,8 @@ export function activate(context: vscode.ExtensionContext) {
             );
             // push function to setters
             setters.push(
-              `func (${receiver} *${structName}) Set${displayKey}(${rawKey} ${type}) *${structName} ` +
-                `{\n\t${receiver}.${rawKey} = ${rawKey}\n\treturn ${receiver}\n}`
+              `func (${receiver} *${structName}) Set${displayKey}(${setKey} ${type}) *${structName} ` +
+                `{\n\t${receiver}.${rawKey} = ${setKey}\n}`
             );
           }
         }
